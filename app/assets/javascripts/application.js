@@ -10,6 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function() {
+    $('[data-js-tutorial-form]').on("ajax:success", function(event, data, status, xhr){
+        $('#tutorials').append(xhr.responseText);
+    });
+});

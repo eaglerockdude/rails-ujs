@@ -1,0 +1,15 @@
+<h1>Tutorials</h1>
+<ul id="tutorials">
+  <% @tutorials.each do |tutorial| %>
+    <li><%= link_to(tutorial.title, tutorial.url) %>
+      <p></p>
+  <% end %>
+</ul>
+<h3>New Tutorial Test form uses "form_with"</h3>
+<%= form_for Tutorial.new, remote: true, data: {'js-tutorial-form' => true} do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :url %>
+  <%= form.text_field :url %>
+  <%= form.submit %>
+<% end %>
